@@ -3,23 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_culture">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.adventure_kaan.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
+        android:id="@+id/navigation_archaeological_zones"
+        android:name="com.example.adventure_kaan.ui.archaeological_zones.archaeological_zones"
+        android:label="fragment_archaeological_zones"
+        tools:layout="@layout/fragment_archaeological_zones" />
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.adventure_kaan.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
+        android:id="@+id/navigation_videos"
+        android:name="com.example.adventure_kaan.ui.videos.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.adventure_kaan.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_culture"
+        android:name="com.example.adventure_kaan.ui.culture.CultureFragment"
+        android:label="fragment_culture"
+        tools:layout="@layout/fragment_culture" />
 </navigation>

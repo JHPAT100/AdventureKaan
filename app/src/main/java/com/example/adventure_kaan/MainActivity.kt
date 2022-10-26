@@ -24,9 +24,12 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+
+        //Metodo que carga la interaccion con el menu de navegaciones
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                //Cargamos las navegaciones que estan referenciadas al directorio navigation/fragment
+                R.id.navigation_archaeological_zones,R.id.navigation_videos,R.id.navigation_culture
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
