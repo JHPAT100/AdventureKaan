@@ -16,12 +16,15 @@ class CustomAdapter(
     private val itemClickListener:OnClickListener
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
-    val titles = arrayOf("Codelia","Suscriebete","Videos","Youtube")
-    val subtitles = arrayOf("Kotlin","Java","Android","C++")
-    val images = intArrayOf(R.drawable.ic_home_black_24dp,
-        R.drawable.ic_baseline_map_24,
-        R.drawable.ic_baseline_history_edu_24,
-        R.drawable.ic_launcher_background)
+    val titles = arrayOf("Historia","Religión","Arte","Agricultura","Astronomía","Calendario")
+    val subtitles = arrayOf("Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce")
+    val images = intArrayOf(R.drawable.fondo_prueba_371_73,
+        R.drawable.fondo_prueba_371_73,
+        R.drawable.fondo_prueba_371_73,
+        R.drawable.fondo_prueba_371_73,
+        R.drawable.fondo_prueba_371_73,
+        R.drawable.fondo_prueba_371_73
+    )
 
     interface OnClickListener{
         fun onImageClick(image:Int)
@@ -30,7 +33,7 @@ class CustomAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.list_element_culture,parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.list_element_v2,parent, false)
         )
     }
 
@@ -41,7 +44,6 @@ class CustomAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.itemTitle.text = titles[position]
-        holder.itemSubtitle.text = subtitles[position]
         holder.itemImage.setImageResource(images[position])
 
 
@@ -57,12 +59,10 @@ class CustomAdapter(
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var itemImage : ImageView
         var itemTitle: TextView
-        var itemSubtitle: TextView
 
         init{
             itemImage = itemView.findViewById(R.id.IconImageView)
             itemTitle = itemView.findViewById(R.id.Title)
-            itemSubtitle = itemView.findViewById(R.id.Subtitle)
 
         }
 

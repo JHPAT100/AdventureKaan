@@ -12,4 +12,20 @@
     <color name="green">#5B7801</color>
     <color name="turquesa">#67BAAD</color>
 
+    <color name="bg_nav_bar">#027353</color>
+    <color name="bg_nav_bar_v">#7D5CF2</color>
+
+    <color name="bg_botton_nav">#FFF</color>
+
+    <color name="bg_principal">#D9C8A9</color>
+
+    <color name="bg_card">#FFF</color>
+
+    <color name="bg_statusBarColor">#0378A6</color>
+
+    <color name="text_color">#037F8C</color>
+
+
+
+
 </resources>

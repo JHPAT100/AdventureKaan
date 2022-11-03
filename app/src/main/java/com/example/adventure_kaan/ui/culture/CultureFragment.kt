@@ -2,6 +2,7 @@ package com.example.adventure_kaan.ui.culture
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -9,10 +10,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.CustomAdapter
 import com.example.adventure_kaan.R
+import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -97,16 +103,25 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
     }
 
     override fun onImageClick(image: Int) {
-        //view!!.findNavController().navigate(R.id.navigation_archaeological_zones)
+       /*
+        //view!!.findNavController().navigate(R.id.cultureContainer)
         val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
         val cultureContainer = CultureContainer()
+        val vista = CultureFragment()
+        transaction.remove(vista)
         transaction.replace(R.id.nav_host_fragment_activity_main, cultureContainer)
         //transaction.add(R.id.nav_host_fragment_activity_main, cultureContainer)
         transaction.commit()
+*/
+        //findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
+       // findNavController().navigate(R.id.navigation_culture)
+
+        findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
 
 
 
     }
+
 
 
     override fun onItemClick(titulo: String) {
@@ -114,21 +129,4 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
 
     }
 
-    inline fun FragmentManager.doTransaction(func: FragmentTransaction.() ->
-    FragmentTransaction) {
-        beginTransaction().func().commit()
-    }
-
-    fun AppCompatActivity.addFragment(frameId: Int, fragment: Fragment){
-        supportFragmentManager.doTransaction { add(frameId, fragment) }
-    }
-
-
-    fun AppCompatActivity.replaceFragment(frameId: Int, fragment: Fragment) {
-        supportFragmentManager.doTransaction{replace(frameId, fragment)}
-    }
-
-    fun AppCompatActivity.removeFragment(fragment: Fragment) {
-        supportFragmentManager.doTransaction{remove(fragment)}
-    }
 }

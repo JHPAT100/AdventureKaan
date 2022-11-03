@@ -8,16 +8,21 @@
     <fragment
         android:id="@+id/navigation_archaeological_zones"
         android:name="com.example.adventure_kaan.ui.archaeological_zones.archaeological_zones"
-        android:label="fragment_archaeological_zones"
         tools:layout="@layout/fragment_archaeological_zones" />
     <fragment
         android:id="@+id/navigation_videos"
         android:name="com.example.adventure_kaan.ui.videos.VideosFragment"
-        android:label="fragment_videos"
         tools:layout="@layout/fragment_videos" />
     <fragment
         android:id="@+id/navigation_culture"
         android:name="com.example.adventure_kaan.ui.culture.CultureFragment"
-        android:label="fragment_culture"
-        tools:layout="@layout/fragment_culture" />
+        tools:layout="@layout/fragment_culture" >
+        <action
+            android:id="@+id/action_navigation_culture_to_cultureContainer"
+            app:destination="@id/cultureContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/cultureContainer"
+        android:name="com.example.adventure_kaan.ui.culture.CultureContainer"
+        tools:layout="@layout/fragment_culture_container" />
 </navigation>
