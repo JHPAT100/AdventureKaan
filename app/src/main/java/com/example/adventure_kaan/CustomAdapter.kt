@@ -11,20 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.ui.culture.CultureContainer
+import com.example.adventure_kaan.ui.modelos.CardList
 
 class CustomAdapter(
+    val Lista:List<CardList>,
     private val itemClickListener:OnClickListener
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
-
-    val titles = arrayOf("Historia","Religión","Arte","Agricultura","Astronomía","Calendario")
-    val subtitles = arrayOf("Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce","Entra y conoce")
-    val images = intArrayOf(R.drawable.fondo_prueba_371_73,
-        R.drawable.fondo_prueba_371_73,
-        R.drawable.fondo_prueba_371_73,
-        R.drawable.fondo_prueba_371_73,
-        R.drawable.fondo_prueba_371_73,
-        R.drawable.fondo_prueba_371_73
-    )
 
     interface OnClickListener{
         fun onImageClick(image:Int)
@@ -38,18 +30,19 @@ class CustomAdapter(
     }
 
     override fun getItemCount(): Int {
-        return titles.size
+        return Lista.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.itemTitle.text = titles[position]
-        holder.itemImage.setImageResource(images[position])
+        val currenItem = Lista[position]
+        holder.itemTitle.text = currenItem.title
+        holder.itemImage.setImageResource(currenItem.title_img)
 
 
         //Para el onClick
-        holder.itemView.setOnClickListener { itemClickListener.onItemClick(titles[position]) }
-        holder.itemImage.setOnClickListener { itemClickListener.onImageClick(images[position]) }
+        holder.itemView.setOnClickListener { itemClickListener.onItemClick(currenItem.title) }
+        holder.itemImage.setOnClickListener { itemClickListener.onImageClick(currenItem.title_img) }
         //
 
     }

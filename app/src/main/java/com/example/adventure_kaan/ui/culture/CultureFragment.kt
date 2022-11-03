@@ -18,7 +18,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.CustomAdapter
 import com.example.adventure_kaan.R
+import com.example.adventure_kaan.ui.modelos.CardList
 import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,12 @@ private const val ARG_PARAM2 = "param2"
 
 //Variables para la lista
 private lateinit var recyclerView: RecyclerView
+private lateinit var ListaCard : ArrayList<CardList>
+private lateinit var adapter: CustomAdapter
+
+lateinit var imageId: Array<Int>
+lateinit var title: Array<String>
+
 
 
 /**
@@ -82,16 +90,18 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
 
     }
 
+    //Clases para la lista
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        dataInitialize()
         val layoutManager = LinearLayoutManager(context)
-        recyclerView = view.findViewById(R.id.CultureList)
+        recyclerView = view.findViewById(R.id.List)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
 
         //cargamos el adapatador de los valores y se lo anexamos al la lista
-        val adapter = CustomAdapter(this)
+        val adapter = CustomAdapter(ListaCard,this)
         recyclerView.adapter = adapter
 
         /*
@@ -118,15 +128,38 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
 
         findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
 
-
-
     }
-
-
 
     override fun onItemClick(titulo: String) {
         Toast.makeText(context, "Estas en "+titulo, Toast.LENGTH_SHORT).show()
 
+    }
+
+    private fun dataInitialize(){
+        ListaCard = arrayListOf<CardList>()
+
+        imageId = arrayOf(
+            R.drawable.historia_card,
+            R.drawable.religion_card,
+            R.drawable.arte_card,
+            R.drawable.agricultura_card,
+            R.drawable.fondo_prueba_371_73,
+            R.drawable.fondo_prueba_371_73
+        )
+
+        title = arrayOf(
+            "Historia",
+            "Religión",
+            "Arte",
+            "Agricultura",
+            "Astronomía",
+            "Calendario"
+        )
+
+        for(i in imageId.indices){
+            val card = CardList(imageId[i], title[i])
+            ListaCard.add(card)
+        }
     }
 
 }

@@ -34,7 +34,7 @@
     </style>
 
     <style name="SpecificCornerCutCard">
-        <item name="cornerSizeBottomRight">50dp</item>
+        <item name="cornerSizeBottomRight">60dp</item>
     </style>
 
 </resources>
