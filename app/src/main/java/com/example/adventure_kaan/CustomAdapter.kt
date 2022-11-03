@@ -19,7 +19,7 @@ class CustomAdapter(
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
     interface OnClickListener{
-        fun onImageClick(image:Int)
+        fun onImageClick(image:Int,position:Int)
         fun onItemClick(titulo:String)
     }
 
@@ -42,11 +42,10 @@ class CustomAdapter(
 
         //Para el onClick
         holder.itemView.setOnClickListener { itemClickListener.onItemClick(currenItem.title) }
-        holder.itemImage.setOnClickListener { itemClickListener.onImageClick(currenItem.title_img) }
+        holder.itemImage.setOnClickListener { itemClickListener.onImageClick(currenItem.title_img,position) }
         //
 
     }
-
 
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){

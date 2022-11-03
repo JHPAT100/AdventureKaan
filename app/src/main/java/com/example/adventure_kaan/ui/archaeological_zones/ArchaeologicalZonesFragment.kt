@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.CustomAdapter
 import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
+import java.text.FieldPosition
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -95,7 +96,7 @@ class archaeological_zones : Fragment(),CustomAdapter.OnClickListener {
         */
     }
 
-    override fun onImageClick(image: Int) {
+    override fun onImageClick(image: Int,position: Int) {
         /*
          //view!!.findNavController().navigate(R.id.cultureContainer)
          val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()

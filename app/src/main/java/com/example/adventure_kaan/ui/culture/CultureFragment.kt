@@ -1,5 +1,6 @@
 package com.example.adventure_kaan.ui.culture
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.CustomAdapter
 import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
+import java.text.FieldPosition
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -27,27 +30,21 @@ import kotlin.collections.ArrayList
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-//Variables para la lista
-private lateinit var recyclerView: RecyclerView
-private lateinit var ListaCard : ArrayList<CardList>
-private lateinit var adapter: CustomAdapter
-
-lateinit var imageId: Array<Int>
-lateinit var title: Array<String>
-
-
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CultureFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
-    // TODO: Rename and change types of parameters
+
+    //Variables para la lista
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var ListaCard : ArrayList<CardList>
+    private lateinit var adapter: CustomAdapter
+
+    lateinit var imageId: Array<Int>
+    lateinit var title: Array<String>
+
+    var posicionLista = 0
+
     private var param1: String? = null
     private var param2: String? = null
 
-    //
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,16 +66,7 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CultureFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+
         fun newInstance(param1: String, param2: String) =
             CultureFragment().apply {
                 arguments = Bundle().apply {
@@ -110,9 +98,10 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
         */
+
     }
 
-    override fun onImageClick(image: Int) {
+    override fun onImageClick(image: Int,position: Int) {
        /*
         //view!!.findNavController().navigate(R.id.cultureContainer)
         val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
@@ -126,7 +115,16 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
         //findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
        // findNavController().navigate(R.id.navigation_culture)
 
-        findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
+        //val bundle = Bundle()
+        //bundle.putInt("numero",12)
+        // activityContenedora?.devolverDato("hola");
+        //Nombre del identificador/variable
+        val bundle = bundleOf("3132" to position)
+        findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer,bundle)
+
+
+
+
 
     }
 
@@ -161,5 +159,29 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
             ListaCard.add(card)
         }
     }
+
+    /*//Metodos para recibor los datos
+    interface ComunicadorFragments{
+        fun devolverDato(dato:String)
+    }
+
+    private var activityContenedora : ComunicadorFragments? = null
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if(context is ComunicadorFragments){
+            activityContenedora = context
+        }else{
+            throw RuntimeException(context.toString()
+                    +" debe implementar ComunicadorFragments")
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        activityContenedora = null
+    }*/
+    //
 
 }
