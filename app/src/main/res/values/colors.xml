@@ -16,13 +16,15 @@
     <color name="bg_nav_bar_v">#7D5CF2</color>
 
     <color name="bg_botton_nav">#FFF</color>
-
-    <color name="bg_principal">#F2CEAE</color>
+    //#F2CEAE
+    <color name="bg_principal">#FFF</color>
 
     <color name="bg_card">#FFF</color>
 
     <color name="bg_statusBarColor">#6CC5D9</color>
 
     <color name="text_color">#037F8C</color>
+
+    <color name="parrafo_color">#000</color>
 
 </resources>

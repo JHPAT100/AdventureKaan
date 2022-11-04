@@ -11,13 +11,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.example.adventure_kaan.CustomAdapter
 import com.example.adventure_kaan.R
+import com.example.adventure_kaan.ui.modelos.CardList
+import com.example.adventure_kaan.ui.modelos.informationModel
 
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
+//Variables para la lista
+private lateinit var InformationModel : ArrayList<informationModel>
+lateinit var imageId: Array<Int>
+lateinit var title: Array<String>
+lateinit var text: Array<String>
 
 
 class CultureContainer : Fragment(){
@@ -62,14 +72,61 @@ class CultureContainer : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (arguments != null){
+            dataInitialize()
             //val numFragmento = arguments!!.getInt("numero")
-            Toast.makeText(context, arguments?.getInt("3132").toString(), Toast.LENGTH_SHORT).show()
-            val te : TextView = view.findViewById(R.id.textView)
-            te.text = arguments?.getInt("3132").toString()
+            //Toast.makeText(context, arguments?.getInt("3132").toString(), Toast.LENGTH_SHORT).show()
+            val text : TextView = view.findViewById(R.id.text)
+            val title : TextView = view.findViewById(R.id.title)
+            val img : ImageView = view.findViewById(R.id.IconImageView)
+            val posicion : Int = arguments?.getInt("3132")!!.toInt()
+            //Toast.makeText(context, posicion.toString(), Toast.LENGTH_SHORT).show()
+            val currenItem = InformationModel[posicion.toInt()]
+            text.text = currenItem.text.toString()
+            title.text = currenItem.title.toString()
+            img.setImageResource(currenItem.title_img)
         }
 
 
     }
+
+    private fun dataInitialize(){
+        InformationModel = arrayListOf<informationModel>()
+
+        imageId = arrayOf(
+            R.drawable.historia_card,
+            R.drawable.religion_card,
+            R.drawable.arte_card,
+            R.drawable.agricultura_card,
+            R.drawable.fondo_prueba_371_73,
+            R.drawable.fondo_prueba_371_73
+        )
+
+        title = arrayOf(
+            "Historia",
+            "Religión",
+            "Arte",
+            "Agricultura",
+            "Astronomía",
+            "Calendario"
+        )
+
+        text = arrayOf<String>(
+            getString(R.string.text_historia),
+            getString(R.string.text_religion),
+            getString(R.string.text_arte),
+            getString(R.string.text_agricultura),
+            getString(R.string.text_astronomia),
+            getString(R.string.text_calendario),
+
+        )
+
+        for(i in imageId.indices){
+            val information = informationModel(imageId[i], title[i],text[i])
+            InformationModel.add(information)
+        }
+    }
+
+
 
 
 }
