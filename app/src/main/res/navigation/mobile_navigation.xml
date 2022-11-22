@@ -12,7 +12,11 @@
     <fragment
         android:id="@+id/navigation_videos"
         android:name="com.example.adventure_kaan.ui.videos.VideosFragment"
-        tools:layout="@layout/fragment_videos" />
+        tools:layout="@layout/fragment_videos" >
+        <action
+            android:id="@+id/action_navigation_videos_to_videosWebFragment"
+            app:destination="@id/videosWebFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_culture"
         android:name="com.example.adventure_kaan.ui.culture.CultureFragment"
@@ -25,4 +29,9 @@
         android:id="@+id/cultureContainer"
         android:name="com.example.adventure_kaan.ui.culture.CultureContainer"
         tools:layout="@layout/fragment_culture_container" />
+    <fragment
+        android:id="@+id/videosWebFragment"
+        android:name="com.example.adventure_kaan.ui.videos.VideosWebFragment"
+        android:label="fragment_videos_web"
+        tools:layout="@layout/fragment_videos_web" />
 </navigation>
