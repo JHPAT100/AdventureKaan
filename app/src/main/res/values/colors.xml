@@ -27,4 +27,6 @@
 
     <color name="parrafo_color">#000</color>
 
+    <color name="text_color_videos">#FFF</color>
+
 </resources>

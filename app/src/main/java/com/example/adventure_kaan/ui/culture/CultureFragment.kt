@@ -1,28 +1,18 @@
 package com.example.adventure_kaan.ui.culture
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.onNavDestinationSelected
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adventure_kaan.CustomAdapter
+import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
-import java.text.FieldPosition
-import java.util.*
 import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,12 +20,12 @@ import kotlin.collections.ArrayList
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
+class CultureFragment : Fragment(), CustomAdapter_v2.OnClickListener {
 
     //Variables para la lista
     private lateinit var recyclerView: RecyclerView
     private lateinit var ListaCard : ArrayList<CardList>
-    private lateinit var adapter: CustomAdapter
+    private lateinit var adapter: CustomAdapter_v2
 
     lateinit var imageId: Array<Int>
     lateinit var title: Array<String>
@@ -89,7 +79,7 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
         recyclerView.setHasFixedSize(true)
 
         //cargamos el adapatador de los valores y se lo anexamos al la lista
-        val adapter = CustomAdapter(ListaCard,this)
+        val adapter = CustomAdapter_v2(ListaCard,this)
         recyclerView.adapter = adapter
 
         /*

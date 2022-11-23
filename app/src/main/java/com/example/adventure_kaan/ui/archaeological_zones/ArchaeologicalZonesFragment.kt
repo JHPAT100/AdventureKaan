@@ -9,10 +9,9 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adventure_kaan.CustomAdapter
+import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
-import java.text.FieldPosition
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,12 +27,12 @@ private const val ARG_PARAM2 = "param2"
 //Variables para la lista
 private lateinit var recyclerView: RecyclerView
 private lateinit var ListaCard : ArrayList<CardList>
-private lateinit var adapter: CustomAdapter
+private lateinit var adapter: CustomAdapter_v2
 
 lateinit var imageId: Array<Int>
 lateinit var title: Array<String>
 
-class archaeological_zones : Fragment(),CustomAdapter.OnClickListener {
+class archaeological_zones : Fragment(), CustomAdapter_v2.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -85,7 +84,7 @@ class archaeological_zones : Fragment(),CustomAdapter.OnClickListener {
         recyclerView.setHasFixedSize(true)
 
         //cargamos el adapatador de los valores y se lo anexamos al la lista
-        val adapter = CustomAdapter(ListaCard, this)
+        val adapter = CustomAdapter_v2(ListaCard, this)
         recyclerView.adapter = adapter
 
         /*

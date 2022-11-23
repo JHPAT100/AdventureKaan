@@ -1,22 +1,18 @@
-package com.example.adventure_kaan
+package com.example.adventure_kaan.Adaptadores
 
-import android.content.Context
-import android.graphics.ColorSpace.Model
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.view.menu.MenuView.ItemView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adventure_kaan.ui.culture.CultureContainer
+import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
 
-class CustomAdapter(
+class CustomAdapter_v3(
     val Lista:List<CardList>,
-    private val itemClickListener:OnClickListener
-) : RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
+    private val itemClickListener: OnClickListener
+) : RecyclerView.Adapter<CustomAdapter_v3.ViewHolder>(){
 
     interface OnClickListener{
         fun onImageClick(image:Int,position:Int)
@@ -25,7 +21,7 @@ class CustomAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.list_element_v2,parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.list_element_v3,parent, false)
         )
     }
 

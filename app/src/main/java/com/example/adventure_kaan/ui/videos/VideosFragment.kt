@@ -9,7 +9,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.adventure_kaan.CustomAdapter
+import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
+import com.example.adventure_kaan.Adaptadores.CustomAdapter_v3
 import com.example.adventure_kaan.R
 import com.example.adventure_kaan.ui.modelos.CardList
 
@@ -22,14 +23,14 @@ private const val ARG_PARAM2 = "param2"
 //Variables para la lista
 private lateinit var recyclerView: RecyclerView
 private lateinit var ListaCard : ArrayList<CardList>
-private lateinit var adapter: CustomAdapter
+private lateinit var adapter: CustomAdapter_v3
 
 lateinit var imageId: Array<Int>
 lateinit var title: Array<String>
 
 var posicionLista = 0
 
-class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
+class VideosFragment : Fragment(), CustomAdapter_v3.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -71,7 +72,7 @@ class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
         recyclerView.setHasFixedSize(true)
 
         //cargamos el adapatador de los valores y se lo anexamos al la lista
-        val adapter = CustomAdapter(ListaCard,this)
+        val adapter = CustomAdapter_v3(ListaCard,this)
         recyclerView.adapter = adapter
     }
 
@@ -87,19 +88,19 @@ class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
         ListaCard = arrayListOf<CardList>()
 
         imageId = arrayOf(
-            R.drawable.historia_card,
-            R.drawable.religion_card,
-            R.drawable.arte_card,
-            R.drawable.agricultura_card,
-            R.drawable.fondo_prueba_371_73,
+            R.drawable.img_mayas_v1,
+            R.drawable.img_mayas_v1,
+            R.drawable.img_mayas_v1,
+            R.drawable.img_mayas_v1,
+            R.drawable.img_mayas_v1,
         )
 
         title = arrayOf(
-            "Historia",
-            "Religión",
-            "Arte",
-            "Agricultura",
-            "Astronomía",
+            "Los Mayas en dibujos animados",
+            "¿Qué diferencia a los aztecas de los mayas?",
+            "Historia Maya",
+            "La cultura maya en 3 minutos",
+            "El juego sagrado de los mayas",
         )
 
         for(i in imageId.indices){
