@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
@@ -48,17 +49,20 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+        //Metodo que reacarga las vistas del menu
         navView.setOnItemReselectedListener{
             when(it.itemId) {
-
                 R.id.navigation_culture -> findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_culture)
                 R.id.navigation_archaeological_zones-> findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_archaeological_zones)
                 R.id.navigation_videos -> findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_videos)
             }
 
         }
+    }
 
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_culture)
     }
 
     /*

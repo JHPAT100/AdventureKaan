@@ -18,7 +18,9 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 //Private
-private val BASE_URL = "https://www.youtube.com/watch?v=qwb8qSw1d7s&t=621s"
+private var BASE_URL = "https://www.youtube.com/watch?v=qwb8qSw1d7s&t=621s"
+
+private lateinit var Urls: Array<String>
 
 
 class VideosWebFragment : Fragment() {
@@ -65,7 +67,17 @@ class VideosWebFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val posicion : Int = arguments?.getInt("3132")!!.toInt()
+        val posicion : Int = arguments?.getInt("01")!!.toInt()
+
+        Urls = arrayOf(
+            "https://www.youtube.com/watch?v=mrTzjGYHJxI",
+            "https://www.youtube.com/watch?v=9yc4JIMcZQg",
+            "https://www.youtube.com/watch?v=rv3k9mGTRvo",
+            "https://www.youtube.com/watch?v=Pmb-h56Nt9M",
+            "https://www.youtube.com/watch?v=h6BTnR_pZsY",
+        )
+
+        BASE_URL = Urls[posicion]
 
         //WebView
         val webView : WebView = view.findViewById(R.id.WebView)

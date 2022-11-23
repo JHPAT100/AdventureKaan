@@ -76,7 +76,7 @@ class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
     }
 
     override fun onImageClick(image: Int,position: Int) {
-        val bundle = bundleOf("3132" to position)
+        val bundle = bundleOf("01" to position)
         findNavController().navigate(R.id.videosWebFragment,bundle)
     }
 
@@ -92,7 +92,6 @@ class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
             R.drawable.arte_card,
             R.drawable.agricultura_card,
             R.drawable.fondo_prueba_371_73,
-            R.drawable.fondo_prueba_371_73
         )
 
         title = arrayOf(
@@ -101,7 +100,6 @@ class VideosFragment : Fragment(),CustomAdapter.OnClickListener {
             "Arte",
             "Agricultura",
             "Astronomía",
-            "Calendario"
         )
 
         for(i in imageId.indices){

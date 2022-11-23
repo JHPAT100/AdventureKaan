@@ -122,11 +122,11 @@ class CultureFragment : Fragment(),CustomAdapter.OnClickListener {
         val bundle = bundleOf("3132" to position)
         findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer,bundle)
 
+
     }
 
     override fun onItemClick(titulo: String) {
         Toast.makeText(context, "Estas en "+titulo, Toast.LENGTH_SHORT).show()
-
     }
 
     private fun dataInitialize(){

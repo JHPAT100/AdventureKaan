@@ -25,9 +25,9 @@ private const val ARG_PARAM2 = "param2"
 
 //Variables para la lista
 private lateinit var InformationModel : ArrayList<informationModel>
-lateinit var imageId: Array<Int>
-lateinit var title: Array<String>
-lateinit var text: Array<String>
+private lateinit var imageId: Array<Int>
+private lateinit var title: Array<String>
+private lateinit var text: Array<String>
 
 
 class CultureContainer : Fragment(){
@@ -93,7 +93,7 @@ class CultureContainer : Fragment(){
         InformationModel = arrayListOf<informationModel>()
 
         imageId = arrayOf(
-            R.drawable.historia_card,
+            R.drawable.fondo,
             R.drawable.religion_card,
             R.drawable.arte_card,
             R.drawable.agricultura_card,
