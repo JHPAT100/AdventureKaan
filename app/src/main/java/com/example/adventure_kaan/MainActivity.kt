@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.navView
@@ -60,10 +59,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
     override fun onBackPressed() {
         super.onBackPressed()
         findNavController(R.id.nav_host_fragment_activity_main).navigate(R.id.navigation_culture)
     }
+*/
+
 
     /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

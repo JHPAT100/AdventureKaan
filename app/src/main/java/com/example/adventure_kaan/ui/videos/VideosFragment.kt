@@ -78,7 +78,7 @@ class VideosFragment : Fragment(), CustomAdapter_v3.OnClickListener {
 
     override fun onImageClick(image: Int,position: Int) {
         val bundle = bundleOf("01" to position)
-        findNavController().navigate(R.id.videosWebFragment,bundle)
+        findNavController().navigate(R.id.action_navigation_videos_to_videosWebFragment,bundle)
     }
 
     override fun onItemClick(titulo: String) {

@@ -15,7 +15,8 @@
         tools:layout="@layout/fragment_videos" >
         <action
             android:id="@+id/action_navigation_videos_to_videosWebFragment"
-            app:destination="@id/videosWebFragment" />
+            app:destination="@id/videosWebFragment"
+            app:popUpTo="@id/navigation_videos" />
     </fragment>
     <fragment
         android:id="@+id/navigation_culture"

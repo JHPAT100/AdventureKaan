@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/primerFragment">
+
+    <fragment
+        android:id="@+id/primerFragment"
+        android:name="com.example.adventurekaan.PrimerFragment"
+        android:label="Primer Fragmento"
+        tools:layout="@layout/fragment_primer" />
+
+    <fragment
+        android:id="@+id/segundoFragment"
+        android:name="com.example.adventurekaan.SegundoFragment"
+        android:label="Segundo Fragmento"
+        tools:layout="@layout/fragment_segundo" />
+
+    <fragment
+        android:id="@+id/tercerFragment"
+        android:name="com.example.adventurekaan.TercerFragment"
+        android:label="Tercer Fragmento"
+        tools:layout="@layout/fragment_tercero" />
+
+    <fragment
+        android:id="@+id/cuartoFragment"
+        android:name="com.example.adventurekaan.CuartoFragment"
+        android:label="Cuarto Fragmento"
+        tools:layout="@layout/fragment_cuarto" />
+    <fragment
+        android:id="@+id/cultureFragment"
+        android:name="com.example.adventurekaan.ui.culture.CultureFragment"
+        android:label="fragment_culture"
+        tools:layout="@layout/fragment_culture" >
+        <action
+            android:id="@+id/action_cultureFragment_to_cultureContainer"
+            app:destination="@id/cultureContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/cultureContainer"
+        android:name="com.example.adventurekaan.ui.culture.CultureContainer"
+        android:label="fragment_culture_container"
+        tools:layout="@layout/fragment_culture_container" />
+</navigation>

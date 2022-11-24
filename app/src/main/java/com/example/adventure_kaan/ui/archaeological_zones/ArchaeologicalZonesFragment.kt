@@ -109,7 +109,7 @@ class archaeological_zones : Fragment(), CustomAdapter_v2.OnClickListener {
         //findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
         // findNavController().navigate(R.id.navigation_culture)
 
-        findNavController().navigate(R.id.action_navigation_culture_to_cultureContainer)
+        findNavController().navigate(R.id.cultureContainer)
 
     }
 
