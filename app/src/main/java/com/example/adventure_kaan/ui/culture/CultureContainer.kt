@@ -86,7 +86,7 @@ class CultureContainer : Fragment(){
         InformationModel = arrayListOf<informationModel>()
 
         imageId = arrayOf(
-            R.drawable.fondo,
+            R.drawable.bg_historia_c,
             R.drawable.religion_card,
             R.drawable.arte_card,
             R.drawable.agricultura_card,

@@ -21,7 +21,7 @@ class CustomAdapter_v2(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.list_element_v2,parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.list_element_v3,parent, false)
         )
     }
 

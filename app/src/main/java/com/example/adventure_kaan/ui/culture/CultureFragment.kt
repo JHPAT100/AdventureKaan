@@ -123,7 +123,7 @@ class CultureFragment : Fragment(), CustomAdapter_v2.OnClickListener {
         ListaCard = arrayListOf<CardList>()
 
         imageId = arrayOf(
-            R.drawable.historia_card,
+            R.drawable.bg_historia_c,
             R.drawable.religion_card,
             R.drawable.arte_card,
             R.drawable.agricultura_card,
