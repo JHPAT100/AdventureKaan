@@ -20,4 +20,6 @@
     <color name="parrafo_color">#000</color>
     <color name="text_color_videos">#FFF</color>
 
+    //Colors of the card
+    <color name="bg_text">#8D1D19</color>
 </resources>
