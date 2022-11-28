@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/primerFragment"
-        android:title="Cultura"
-        android:icon="@drawable/ic_baseline_filter_1"/>
-
-    <item
-        android:id="@+id/segundoFragment"
-        android:title="Videos"
-        android:icon="@drawable/ic_baseline_filter_2"/>
+        android:id="@+id/zonasFragment"
+        android:title="Zonas"
+        android:icon="@drawable/ic_baseline_map_24"/>
 
     <item
         android:id="@+id/cultureFragment"
+        android:title="Cultura"
+        android:icon="@drawable/ic_baseline_history_edu_24"/>
+
+    <item
+        android:id="@id/videosFragment"
         android:title="Videos"
-        android:icon="@drawable/ic_baseline_filter_2"/>
+        android:icon="@drawable/ic_baseline_smart_display_24"/>
 
 </menu>

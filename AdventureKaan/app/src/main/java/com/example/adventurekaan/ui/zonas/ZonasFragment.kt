@@ -1,4 +1,4 @@
-package com.example.adventurekaan.ui.videos
+package com.example.adventurekaan.ui.zonas
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,10 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
-import com.example.adventurekaan.databinding.FragmentPrimerBinding
 import com.example.adventurekaan.databinding.FragmentVideosBinding
+import com.example.adventurekaan.databinding.FragmentZonasBinding
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
+class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
+
 
     //Variables para la lista
     private lateinit var recyclerView: RecyclerView
@@ -25,8 +31,9 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
     lateinit var imageId: Array<Int>
     lateinit var title: Array<String>
 
-    private var _binding: FragmentVideosBinding? = null
+    private var _binding: FragmentZonasBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +44,8 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_videos, container, false)
-        _binding = FragmentVideosBinding.inflate(inflater, container, false)
+        //return inflater.inflate(R.layout.fragment_zonas, container, false)
+        _binding = FragmentZonasBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -46,6 +53,11 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Varaiables para el mapa
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
+
+        //Varaibles para la lista
         dataInitialize()
         val layoutManager = LinearLayoutManager(context)
         recyclerView = view.findViewById(R.id.List)
@@ -57,9 +69,15 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
         recyclerView.adapter = adapter
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+
     override fun onImageClick(image: Int,position: Int) {
         val bundle = bundleOf("01" to position)
-        findNavController().navigate(R.id.action_videosFragment_to_videosContainer,bundle)
+        findNavController().navigate(R.id.zonasMapsFragment,bundle)
     }
 
     override fun onItemClick(titulo: String) {
@@ -74,25 +92,53 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
         ListaCard = arrayListOf<CardList>()
 
         imageId = arrayOf(
-            R.drawable.bg_videos_1,
-            R.drawable.bg_videos_2,
-            R.drawable.bg_videos_3,
-            R.drawable.bg_videos_4,
-            R.drawable.bg_videos_5,
+            R.drawable.bg_zonas_1,
+            R.drawable.bg_zonas_2,
+            R.drawable.bg_zonas_3,
+            R.drawable.bg_zonas_4,
+            R.drawable.bg_zonas_5,
+            R.drawable.bg_zonas_6,
+            R.drawable.bg_zonas_7,
+            R.drawable.bg_zonas_8,
+            R.drawable.bg_zonas_9,
+            R.drawable.bg_zonas_10,
+            R.drawable.bg_zonas_11,
+            R.drawable.bg_zonas_12,
+
+
         )
 
         title = arrayOf(
-            "Los Mayas en dibujos animados",
-            "¿Qué diferencia a los aztecas de los mayas?",
-            "Historia Maya",
-            "La cultura maya en 3 minutos",
-            "El juego sagrado de los mayas",
+            "Museo Maya",
+            "Museo Guerra de Castas",
+            "Chichén Itzá",
+            "Tulum",
+            "Coba",
+            "Xaman-Ha",
+            "Xcaret",
+            "Uxmal",
+            "Palenque",
+            "Kohunlich",
+            "San Miguelito",
+            "El Tajin",
         )
 
         for(i in imageId.indices){
             val card = CardList(imageId[i], title[i])
             ListaCard.add(card)
         }
+
+    }
+
+    //Metodo que carga el mapa
+    private val callback = OnMapReadyCallback { googleMap ->
+        val sydney = LatLng(-34.0, 151.0)
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        googleMap.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(sydney,18f),
+            4000,null
+        )
     }
 
 

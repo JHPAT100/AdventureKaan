@@ -3,31 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/primerFragment">
+    app:startDestination="@id/zonasFragment">
 
-    <fragment
-        android:id="@+id/primerFragment"
-        android:name="com.example.adventurekaan.PrimerFragment"
-        android:label="Primer Fragmento"
-        tools:layout="@layout/fragment_primer" />
-
-    <fragment
-        android:id="@+id/segundoFragment"
-        android:name="com.example.adventurekaan.SegundoFragment"
-        android:label="Segundo Fragmento"
-        tools:layout="@layout/fragment_segundo" />
-
-    <fragment
-        android:id="@+id/tercerFragment"
-        android:name="com.example.adventurekaan.TercerFragment"
-        android:label="Tercer Fragmento"
-        tools:layout="@layout/fragment_tercero" />
-
-    <fragment
-        android:id="@+id/cuartoFragment"
-        android:name="com.example.adventurekaan.CuartoFragment"
-        android:label="Cuarto Fragmento"
-        tools:layout="@layout/fragment_cuarto" />
     <fragment
         android:id="@+id/cultureFragment"
         android:name="com.example.adventurekaan.ui.culture.CultureFragment"
@@ -42,4 +19,41 @@
         android:name="com.example.adventurekaan.ui.culture.CultureContainer"
         android:label="fragment_culture_container"
         tools:layout="@layout/fragment_culture_container" />
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.example.adventurekaan.ui.videos.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" >
+        <action
+            android:id="@+id/action_videosFragment_to_videosContainer"
+            app:destination="@id/videosContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/videosContainer"
+        android:name="com.example.adventurekaan.ui.videos.VideosContainer"
+        android:label="fragment_videos_container"
+        tools:layout="@layout/fragment_videos_container" />
+    <fragment
+        android:id="@+id/zonasFragment"
+        android:name="com.example.adventurekaan.ui.zonas.ZonasFragment"
+        android:label="fragment_zonas"
+        tools:layout="@layout/fragment_zonas" >
+        <action
+            android:id="@+id/action_zonasFragment_to_zonasContainer"
+            app:destination="@id/zonasContainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/zonasContainer"
+        android:name="com.example.adventurekaan.ui.zonas.ZonasContainer"
+        android:label="fragment_zonas_container"
+        tools:layout="@layout/fragment_zonas_container" >
+        <action
+            android:id="@+id/action_zonasContainer_to_zonasMapsFragment"
+            app:destination="@id/zonasMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zonasMapsFragment"
+        android:name="com.example.adventurekaan.ui.zonas.ZonasMapsFragment"
+        android:label="fragment_zonas_maps"
+        tools:layout="@layout/fragment_zonas_maps" />
 </navigation>

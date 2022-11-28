@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
+import com.example.adventurekaan.databinding.FragmentCultureBinding
+import com.example.adventurekaan.databinding.FragmentCultureContainerBinding
+import com.example.adventurekaan.databinding.FragmentVideosBinding
 
 class CultureFragment : Fragment(),CustomAdapter_v2.OnClickListener {
 
@@ -27,6 +30,9 @@ class CultureFragment : Fragment(),CustomAdapter_v2.OnClickListener {
 
     var posicionLista = 0
 
+    private var _binding: FragmentCultureBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -36,7 +42,10 @@ class CultureFragment : Fragment(),CustomAdapter_v2.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_culture, container, false)
+        //return inflater.inflate(R.layout.fragment_culture, container, false)
+
+        _binding = FragmentCultureBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     //Clases para la lista
@@ -63,6 +72,10 @@ class CultureFragment : Fragment(),CustomAdapter_v2.OnClickListener {
 
     override fun onItemClick(titulo: String) {
         Toast.makeText(context, "Estas en "+titulo, Toast.LENGTH_SHORT).show()
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun dataInitialize(){

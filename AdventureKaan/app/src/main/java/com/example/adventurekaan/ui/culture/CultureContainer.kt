@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
+import com.example.adventurekaan.databinding.FragmentCultureContainerBinding
+import com.example.adventurekaan.databinding.FragmentPrimerBinding
 import com.example.adventurekaan.informationModel
 
 
@@ -26,6 +28,9 @@ class CultureContainer : Fragment() {
     private lateinit var title: Array<String>
     private lateinit var text: Array<String>
 
+    private var _binding: FragmentCultureContainerBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -34,7 +39,9 @@ class CultureContainer : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_culture_container, container, false)
+        //return inflater.inflate(R.layout.fragment_culture_container, container, false)
+        _binding = FragmentCultureContainerBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,6 +62,11 @@ class CultureContainer : Fragment() {
         }
 
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun dataInitialize(){

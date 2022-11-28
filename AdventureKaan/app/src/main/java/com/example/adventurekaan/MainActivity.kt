@@ -27,9 +27,10 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     appBarConfiguration = AppBarConfiguration(
         setOf(
-            R.id.primerFragment,
-            R.id.segundoFragment,
-            R.id.cultureFragment
+            R.id.cultureFragment,
+            R.id.videosFragment,
+            R.id.zonasFragment,
+
         )
     )
 
