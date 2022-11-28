@@ -29,6 +29,7 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
     private lateinit var adapter: CustomAdapter_v2
 
     lateinit var imageId: Array<Int>
+    lateinit var zonas: Array<LatLng>
     lateinit var title: Array<String>
 
     private var _binding: FragmentZonasBinding? = null
@@ -77,7 +78,7 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
 
     override fun onImageClick(image: Int,position: Int) {
         val bundle = bundleOf("01" to position)
-        findNavController().navigate(R.id.zonasMapsFragment,bundle)
+        findNavController().navigate(R.id.action_zonasFragment_to_zonasContainer,bundle)
     }
 
     override fun onItemClick(titulo: String) {
@@ -104,9 +105,35 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
             R.drawable.bg_zonas_10,
             R.drawable.bg_zonas_11,
             R.drawable.bg_zonas_12,
-
-
         )
+
+        zonas = arrayOf(
+            //"Museo Maya"
+            LatLng(19.5774805,-88.0454902),
+            // "Museo Guerra de Castas"
+            LatLng(20.1968173,-88.3750887),
+            //"Chichén Itzá"
+            LatLng(20.6791414,-88.5682953),
+            // "Tulum"
+            LatLng(20.2149473,-87.4297205),
+            // "Coba"
+            LatLng(20.4912248,-87.7326779),
+            // "Xaman-Ha"
+            LatLng(20.614579,-87.0832679),
+            // "Xcaret"
+            LatLng(20.5790629,-87.1195703),
+            // "Uxmal"
+            LatLng(20.3588291,-89.7881701),
+            // "Palenque"
+            LatLng(17.4847748,-92.0480836),
+            // "Kohunlich"
+            LatLng(18.4207335,-88.7926422),
+            // "San Miguelito"
+            LatLng(21.0708202,-86.77892),
+            // "El Tajin"
+            LatLng(20.3821163,-97.4661878),
+        )
+
 
         title = arrayOf(
             "Museo Maya",
@@ -130,16 +157,24 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
 
     }
 
+
     //Metodo que carga el mapa
     private val callback = OnMapReadyCallback { googleMap ->
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        //val sydney = LatLng(-34.0, 151.0)
+
+        for (contador in 0..(zonas.size-1)) {
+            googleMap.addMarker(MarkerOptions().position(zonas[contador]).title(title[contador]))
+        }
+       // googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+
+        //googleMap.addMarker(MarkerOptions().position(chichen).title("Marker in Sydney"))
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(Museo_Maya))
         googleMap.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(sydney,18f),
-            4000,null
+            CameraUpdateFactory.newLatLngZoom(zonas[0],5f),
+            3000,null
         )
     }
+
 
 
 }

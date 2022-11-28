@@ -20,7 +20,11 @@ private lateinit var map:GoogleMap
 class ZonasMapsFragment : Fragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
+
         val sydney = LatLng(-34.0, 151.0)
+        val chichen = LatLng(20.6809769, -88.5706656)
+        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        googleMap.addMarker(MarkerOptions().position(chichen).title("Marker in Sydney"))
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,18f),

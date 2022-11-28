@@ -5,29 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import com.example.adventurekaan.R
+import com.example.adventurekaan.databinding.FragmentCultureContainerBinding
+import com.example.adventurekaan.databinding.FragmentZonasContainerBinding
+import com.example.adventurekaan.informationModel
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ZonasContainer.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ZonasContainer : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    //Variables para la lista
+    private lateinit var InformationModel : ArrayList<informationModel>
+    private lateinit var imageId: Array<Int>
+    private lateinit var title: Array<String>
+    private lateinit var text: Array<String>
+    lateinit var zonas: Array<LatLng>
+
+    private var _binding: FragmentZonasContainerBinding? = null
+    private val binding get() = _binding!!
+
+    var posicion = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -35,26 +42,140 @@ class ZonasContainer : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_zonas_container, container, false)
+        //return inflater.inflate(R.layout.fragment_zonas_container, container, false)
+        _binding = FragmentZonasContainerBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ZonasContainer.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ZonasContainer().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
+    //
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (arguments != null){
+            dataInitialize()
+
+
+
+            //val numFragmento = arguments!!.getInt("numero")
+            //Toast.makeText(context, arguments?.getInt("3132").toString(), Toast.LENGTH_SHORT).show()
+            val text : TextView = view.findViewById(R.id.text)
+            val title : TextView = view.findViewById(R.id.title)
+            val img : ImageView = view.findViewById(R.id.IconImageView)
+            posicion = arguments?.getInt("01")!!.toInt()
+            //Toast.makeText(context, posicion.toString(), Toast.LENGTH_SHORT).show()
+            val currenItem = InformationModel[posicion.toInt()]
+            text.text = currenItem.text.toString()
+            title.text = currenItem.title.toString()
+            img.setImageResource(currenItem.title_img)
+
+            //Varaiables para el mapa
+            val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+            mapFragment?.getMapAsync(callback)
+
+        }
+
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun dataInitialize(){
+        InformationModel = arrayListOf<informationModel>()
+
+        imageId = arrayOf(
+            R.drawable.bg_zonas_1,
+            R.drawable.bg_zonas_2,
+            R.drawable.bg_zonas_3,
+            R.drawable.bg_zonas_4,
+            R.drawable.bg_zonas_5,
+            R.drawable.bg_zonas_6,
+            R.drawable.bg_zonas_7,
+            R.drawable.bg_zonas_8,
+            R.drawable.bg_zonas_9,
+            R.drawable.bg_zonas_10,
+            R.drawable.bg_zonas_11,
+            R.drawable.bg_zonas_12,
+
+            )
+
+        title = arrayOf(
+            "Museo Maya",
+            "Museo Guerra de Castas",
+            "Chichén Itzá",
+            "Tulum",
+            "Coba",
+            "Xaman-Ha",
+            "Xcaret",
+            "Uxmal",
+            "Palenque",
+            "Kohunlich",
+            "San Miguelito",
+            "El Tajin",
+        )
+
+        zonas = arrayOf(
+            //"Museo Maya"
+            LatLng(19.5774805,-88.0454902),
+            // "Museo Guerra de Castas"
+            LatLng(20.1968173,-88.3750887),
+            //"Chichén Itzá"
+            LatLng(20.6791414,-88.5682953),
+            // "Tulum"
+            LatLng(20.2149473,-87.4297205),
+            // "Coba"
+            LatLng(20.4912248,-87.7326779),
+            // "Xaman-Ha"
+            LatLng(20.614579,-87.0832679),
+            // "Xcaret"
+            LatLng(20.5790629,-87.1195703),
+            // "Uxmal"
+            LatLng(20.3588291,-89.7881701),
+            // "Palenque"
+            LatLng(17.4847748,-92.0480836),
+            // "Kohunlich"
+            LatLng(18.4207335,-88.7926422),
+            // "San Miguelito"
+            LatLng(21.0708202,-86.77892),
+            // "El Tajin"
+            LatLng(20.3821163,-97.4661878),
+        )
+
+        text = arrayOf<String>(
+            getString(R.string.text_historia),
+            getString(R.string.text_religion),
+            getString(R.string.text_arte),
+            getString(R.string.text_agricultura),
+            getString(R.string.text_astronomia),
+            getString(R.string.text_calendario),
+            getString(R.string.text_historia),
+            getString(R.string.text_religion),
+            getString(R.string.text_arte),
+            getString(R.string.text_agricultura),
+            getString(R.string.text_astronomia),
+            getString(R.string.text_calendario)
+            )
+
+        for(i in imageId.indices){
+            val information = informationModel(imageId[i], title[i],text[i])
+            InformationModel.add(information)
+        }
+    }
+
+    //Metodo que carga el mapa
+    private val callback = OnMapReadyCallback { googleMap ->
+        //val sydney = LatLng(-34.0, 151.0)
+        googleMap.addMarker(MarkerOptions().position(zonas[posicion.toInt()]).title(title[posicion.toInt()]))
+
+        // googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+
+        //googleMap.addMarker(MarkerOptions().position(chichen).title("Marker in Sydney"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(zonas[posicion.toInt()]))
+        googleMap.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(zonas[posicion.toInt()],7f),
+            3000,null
+        )
     }
 }
