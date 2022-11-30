@@ -18,7 +18,7 @@
                 android:id="@+id/IconImageView"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/fondo"
+                android:background="@drawable/bg_zonas_c_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

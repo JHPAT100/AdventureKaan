@@ -1,14 +1,15 @@
 package com.example.adventurekaan.ui.zonas
 
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.adventurekaan.R
-import com.example.adventurekaan.databinding.FragmentCultureContainerBinding
 import com.example.adventurekaan.databinding.FragmentZonasContainerBinding
 import com.example.adventurekaan.informationModel
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -30,7 +31,13 @@ class ZonasContainer : Fragment() {
     private var _binding: FragmentZonasContainerBinding? = null
     private val binding get() = _binding!!
 
+    lateinit var img: ImageView
+    lateinit var txt : TextView
+    lateinit var header : TextView
+
     var posicion = 0
+
+    private lateinit var yourBitmap: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,15 +65,20 @@ class ZonasContainer : Fragment() {
 
             //val numFragmento = arguments!!.getInt("numero")
             //Toast.makeText(context, arguments?.getInt("3132").toString(), Toast.LENGTH_SHORT).show()
-            val text : TextView = view.findViewById(R.id.text)
-            val title : TextView = view.findViewById(R.id.title)
-            val img : ImageView = view.findViewById(R.id.IconImageView)
+            txt = view.findViewById(R.id.text)
+            header = view.findViewById(R.id.title)
+            img = view.findViewById(R.id.IconImageView)
             posicion = arguments?.getInt("01")!!.toInt()
             //Toast.makeText(context, posicion.toString(), Toast.LENGTH_SHORT).show()
             val currenItem = InformationModel[posicion.toInt()]
-            text.text = currenItem.text.toString()
-            title.text = currenItem.title.toString()
-            img.setImageResource(currenItem.title_img)
+            txt.text = currenItem.text.toString()
+            header.text = currenItem.title.toString()
+
+            binding.IconImageView.scaleType = ImageView.ScaleType.CENTER_CROP
+            binding.IconImageView.setImageResource(currenItem.title_img)
+
+            //img.setImageResource(currenItem.title_img)
+
 
             //Varaiables para el mapa
             val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
@@ -74,7 +86,11 @@ class ZonasContainer : Fragment() {
 
         }
 
+    }
 
+    private fun resizeImage() {
+        val resized = Bitmap.createScaledBitmap(yourBitmap, 400, 400, true)
+        img.setImageBitmap(resized)
     }
 
     override fun onDestroyView() {
@@ -86,7 +102,7 @@ class ZonasContainer : Fragment() {
         InformationModel = arrayListOf<informationModel>()
 
         imageId = arrayOf(
-            R.drawable.bg_zonas_1,
+            R.drawable.bg_zonas_c_1,
             R.drawable.bg_zonas_2,
             R.drawable.bg_zonas_3,
             R.drawable.bg_zonas_4,
@@ -178,4 +194,5 @@ class ZonasContainer : Fragment() {
             3000,null
         )
     }
+
 }
