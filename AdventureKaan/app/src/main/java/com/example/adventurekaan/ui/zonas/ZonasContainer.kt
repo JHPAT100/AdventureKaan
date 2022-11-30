@@ -144,18 +144,18 @@ class ZonasContainer : Fragment() {
         )
 
         text = arrayOf<String>(
-            getString(R.string.text_historia),
-            getString(R.string.text_religion),
-            getString(R.string.text_arte),
-            getString(R.string.text_agricultura),
-            getString(R.string.text_astronomia),
-            getString(R.string.text_calendario),
-            getString(R.string.text_historia),
-            getString(R.string.text_religion),
-            getString(R.string.text_arte),
-            getString(R.string.text_agricultura),
-            getString(R.string.text_astronomia),
-            getString(R.string.text_calendario)
+            getString(R.string.text_museoMaya),
+            getString(R.string.text_museoGuerraCastas),
+            getString(R.string.text_chichenItza),
+            getString(R.string.text_tulum),
+            getString(R.string.text_coba),
+            getString(R.string.text_xamanHa),
+            getString(R.string.text_xcaret),
+            getString(R.string.text_uxmal),
+            getString(R.string.text_palenque),
+            getString(R.string.text_kohunlich),
+            getString(R.string.text_sanMiguelito),
+            getString(R.string.text_elTajin)
             )
 
         for(i in imageId.indices){
