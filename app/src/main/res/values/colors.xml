@@ -8,25 +8,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="jade">#00a86b</color>
-    <color name="green">#5B7801</color>
-    <color name="turquesa">#67BAAD</color>
 
     <color name="bg_nav_bar">#4992F2</color>
     <color name="bg_nav_bar_v">#7D5CF2</color>
-
     <color name="bg_botton_nav">#FFF</color>
     //#F2CEAE
     <color name="bg_principal">#FFF</color>
-
     <color name="bg_card">#FFF</color>
-
     <color name="bg_statusBarColor">#6CC5D9</color>
-
     <color name="text_color">#037F8C</color>
-
     <color name="parrafo_color">#000</color>
-
     <color name="text_color_videos">#FFF</color>
 
+    //Colors of the card
+    <color name="bg_text">#8D1D19</color>
 </resources>
