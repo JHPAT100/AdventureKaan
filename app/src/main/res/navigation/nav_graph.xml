@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/cultureFragment"
         android:name="com.example.adventurekaan.ui.culture.CultureFragment"
-        android:label="fragment_culture"
-        tools:layout="@layout/fragment_culture" >
+        android:label="Cultura"
+        tools:layout="@layout/fragment_culture">
         <action
             android:id="@+id/action_cultureFragment_to_cultureContainer"
             app:destination="@id/cultureContainer" />
@@ -17,13 +17,13 @@
     <fragment
         android:id="@+id/cultureContainer"
         android:name="com.example.adventurekaan.ui.culture.CultureContainer"
-        android:label="fragment_culture_container"
+        android:label="Cultura"
         tools:layout="@layout/fragment_culture_container" />
     <fragment
         android:id="@+id/videosFragment"
         android:name="com.example.adventurekaan.ui.videos.VideosFragment"
-        android:label="fragment_videos"
-        tools:layout="@layout/fragment_videos" >
+        android:label="Videos"
+        tools:layout="@layout/fragment_videos">
         <action
             android:id="@+id/action_videosFragment_to_videosContainer"
             app:destination="@id/videosContainer" />
@@ -31,13 +31,13 @@
     <fragment
         android:id="@+id/videosContainer"
         android:name="com.example.adventurekaan.ui.videos.VideosContainer"
-        android:label="fragment_videos_container"
+        android:label="Video"
         tools:layout="@layout/fragment_videos_container" />
     <fragment
         android:id="@+id/zonasFragment"
         android:name="com.example.adventurekaan.ui.zonas.ZonasFragment"
-        android:label="fragment_zonas"
-        tools:layout="@layout/fragment_zonas" >
+        android:label="Zonas arqueológicas"
+        tools:layout="@layout/fragment_zonas">
         <action
             android:id="@+id/action_zonasFragment_to_zonasContainer"
             app:destination="@id/zonasContainer" />
@@ -45,8 +45,8 @@
     <fragment
         android:id="@+id/zonasContainer"
         android:name="com.example.adventurekaan.ui.zonas.ZonasContainer"
-        android:label="fragment_zonas_container"
-        tools:layout="@layout/fragment_zonas_container" >
+        android:label="Zona arqueológica"
+        tools:layout="@layout/fragment_zonas_container">
         <action
             android:id="@+id/action_zonasContainer_to_zonasMapsFragment"
             app:destination="@id/zonasMapsFragment" />
@@ -54,6 +54,11 @@
     <fragment
         android:id="@+id/zonasMapsFragment"
         android:name="com.example.adventurekaan.ui.zonas.ZonasMapsFragment"
-        android:label="fragment_zonas_maps"
+        android:label="Zona arqueológica Mapa"
         tools:layout="@layout/fragment_zonas_maps" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.adventurekaan.ui.settings.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>
