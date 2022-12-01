@@ -5,18 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
 
 class CustomAdapter_v2(
     val Lista:List<CardList>,
-    private val itemClickListener: OnClickListener
+    private val itemClickListener: OnClickListener,
 ) : RecyclerView.Adapter<CustomAdapter_v2.ViewHolder>(){
 
     interface OnClickListener{
         fun onImageClick(image:Int,position:Int)
-        fun onItemClick(titulo:String)
+        fun onItemClick(titulo:String,position:Int)
+        //fun onItemClick(card:Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -39,7 +41,10 @@ class CustomAdapter_v2(
 
 
         //Para el onClick
-        holder.itemView.setOnClickListener { itemClickListener.onItemClick(currenItem.title) }
+        //Obejeto
+        holder.itemView.setOnClickListener { itemClickListener.onItemClick(currenItem.title,position) }
+        //holder.itemView.setOnClickListener(itemClickListener.onItemClick(itemCard))
+        //Imagen
         holder.itemImage.setOnClickListener { itemClickListener.onImageClick(currenItem.title_img,position) }
         //
 
@@ -49,8 +54,10 @@ class CustomAdapter_v2(
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         var itemImage : ImageView
         var itemTitle: TextView
+        lateinit var itemCard : CardView
 
         init{
+            itemCard = itemView.findViewById(R.id.CardPrincipal)
             itemImage = itemView.findViewById(R.id.IconImageView)
             itemTitle = itemView.findViewById(R.id.Title)
 

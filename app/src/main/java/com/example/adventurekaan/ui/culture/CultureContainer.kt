@@ -20,12 +20,14 @@ class CultureContainer : Fragment() {
     private lateinit var title: Array<String>
     private lateinit var text: Array<String>
 
-    private var _binding: FragmentCultureContainerBinding? = null
-    private val binding get() = _binding!!
-
     lateinit var img: ImageView
     lateinit var txt : TextView
     lateinit var header : TextView
+
+    private var _binding: FragmentCultureContainerBinding? = null
+    private val binding get() = _binding!!
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

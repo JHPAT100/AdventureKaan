@@ -70,9 +70,12 @@ class CultureFragment : Fragment(),CustomAdapter_v2.OnClickListener {
 
     }
 
-    override fun onItemClick(titulo: String) {
-        Toast.makeText(context, "Estas en "+titulo, Toast.LENGTH_SHORT).show()
+    override fun onItemClick(titulo: String, position: Int) {
+        val bundle = bundleOf("3132" to position)
+        findNavController().navigate(R.id.action_cultureFragment_to_cultureContainer,bundle)
     }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

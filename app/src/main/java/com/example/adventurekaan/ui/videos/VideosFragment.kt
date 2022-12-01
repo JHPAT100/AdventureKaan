@@ -61,7 +61,9 @@ class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
         findNavController().navigate(R.id.action_videosFragment_to_videosContainer,bundle)
     }
 
-    override fun onItemClick(titulo: String) {
+    override fun onItemClick(titulo: String, position: Int) {
+        val bundle = bundleOf("01" to position)
+        findNavController().navigate(R.id.action_videosFragment_to_videosContainer,bundle)
     }
 
     override fun onDestroyView() {

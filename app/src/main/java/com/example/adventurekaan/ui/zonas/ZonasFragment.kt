@@ -68,21 +68,10 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
         //cargamos el adapatador de los valores y se lo anexamos al la lista
         val adapter = CustomAdapter_v2(ListaCard,this)
         recyclerView.adapter = adapter
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 
 
-    override fun onImageClick(image: Int,position: Int) {
-        val bundle = bundleOf("01" to position)
-        findNavController().navigate(R.id.action_zonasFragment_to_zonasContainer,bundle)
-    }
-
-    override fun onItemClick(titulo: String) {
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -175,6 +164,15 @@ class ZonasFragment : Fragment(), CustomAdapter_v2.OnClickListener {
         )
     }
 
+    override fun onImageClick(image: Int, position: Int) {
+        val bundle = bundleOf("3132" to position)
+        findNavController().navigate(R.id.action_zonasFragment_to_zonasContainer,bundle)
+    }
+
+    override fun onItemClick(titulo: String, position: Int) {
+        val bundle = bundleOf("3132" to position)
+        findNavController().navigate(R.id.action_zonasFragment_to_zonasContainer,bundle)
+    }
 
 
 }

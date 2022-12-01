@@ -10,7 +10,8 @@
     android:layout_marginBottom="5dp"
     android:animateLayoutChanges="true"
     app:cardBackgroundColor="#FFF"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:id="@+id/CardPrincipal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

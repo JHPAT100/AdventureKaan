@@ -46,13 +46,17 @@ override fun onCreate(savedInstanceState: Bundle?) {
     binding.bottomNavigationView.setupWithNavController(navController)
 
 }
+    //Boton de regreso
     override fun onSupportNavigateUp(): Boolean {
-        return super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
+    //Opciones del topMenu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
     menuInflater.inflate(R.menu.top_menu, menu)
     return true
     }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }

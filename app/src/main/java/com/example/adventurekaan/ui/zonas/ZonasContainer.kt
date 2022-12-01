@@ -1,7 +1,6 @@
 package com.example.adventurekaan.ui.zonas
 
 import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,16 +27,14 @@ class ZonasContainer : Fragment() {
     private lateinit var text: Array<String>
     lateinit var zonas: Array<LatLng>
 
-    private var _binding: FragmentZonasContainerBinding? = null
-    private val binding get() = _binding!!
-
     lateinit var img: ImageView
     lateinit var txt : TextView
     lateinit var header : TextView
 
-    var posicion = 0
+    private var _binding: FragmentZonasContainerBinding? = null
+    private val binding get() = _binding!!
 
-    private lateinit var yourBitmap: Bitmap
+    var posicion = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,33 +55,36 @@ class ZonasContainer : Fragment() {
     //
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        dataInitialize()
         if (arguments != null){
             dataInitialize()
 
-
-
-            //val numFragmento = arguments!!.getInt("numero")
-            //Toast.makeText(context, arguments?.getInt("3132").toString(), Toast.LENGTH_SHORT).show()
+            //Obejtos
             txt = view.findViewById(R.id.text)
-            header = view.findViewById(R.id.title)
+            header  = view.findViewById(R.id.title)
             img = view.findViewById(R.id.IconImageView)
-            posicion = arguments?.getInt("01")!!.toInt()
-            //Toast.makeText(context, posicion.toString(), Toast.LENGTH_SHORT).show()
+
+            //Posicion
+            posicion = arguments?.getInt("3132")!!.toInt()
+
+            //Item
             val currenItem = InformationModel[posicion.toInt()]
+
+            //Insertar texto
             txt.text = currenItem.text.toString()
+
+            //Insertar imagen
             header.text = currenItem.title.toString()
 
+            //Insertar imagen
             binding.IconImageView.scaleType = ImageView.ScaleType.CENTER_CROP
             binding.IconImageView.setImageResource(currenItem.title_img)
 
-            //img.setImageResource(currenItem.title_img)
-
-
-            //Varaiables para el mapa
+            //Variables para el mapa
             val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
             mapFragment?.getMapAsync(callback)
-
         }
+
 
     }
 
