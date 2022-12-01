@@ -7,16 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
-import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
 import com.example.adventurekaan.databinding.FragmentCultureContainerBinding
-import com.example.adventurekaan.databinding.FragmentPrimerBinding
 import com.example.adventurekaan.informationModel
 
 

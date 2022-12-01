@@ -59,6 +59,6 @@
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.adventurekaan.ui.settings.AboutFragment"
-        android:label="fragment_about"
+        android:label="About Us"
         tools:layout="@layout/fragment_about" />
 </navigation>

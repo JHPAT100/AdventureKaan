@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.adventure_kaan.Adaptadores.CustomAdapter_v2
 import com.example.adventurekaan.CardList
 import com.example.adventurekaan.R
-import com.example.adventurekaan.databinding.FragmentPrimerBinding
 import com.example.adventurekaan.databinding.FragmentVideosBinding
 
 class VideosFragment : Fragment(), CustomAdapter_v2.OnClickListener{
