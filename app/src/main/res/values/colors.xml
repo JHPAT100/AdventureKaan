@@ -22,4 +22,7 @@
 
     //Colors of the card
     <color name="bg_text">#8D1D19</color>
+
+    <color name="app_color">#362C5E</color>
+
 </resources>

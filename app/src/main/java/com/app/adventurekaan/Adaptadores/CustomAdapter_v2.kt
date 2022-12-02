@@ -9,11 +9,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.adventurekaan.CardList
 import com.app.adventurekaan.R
+import com.app.adventurekaan.databinding.FragmentZonasContainerBinding
 
 class CustomAdapter_v2(
     val Lista:List<CardList>,
     private val itemClickListener: OnClickListener,
 ) : RecyclerView.Adapter<CustomAdapter_v2.ViewHolder>(){
+
 
     interface OnClickListener{
         fun onImageClick(image:Int,position:Int)
@@ -39,6 +41,9 @@ class CustomAdapter_v2(
         //Insertar imagen
         holder.itemImage.setImageResource(currenItem.title_img)
 
+        //Insertar imagen
+        holder.itemImage.scaleType = ImageView.ScaleType.CENTER_CROP
+        holder.itemImage.setImageResource(currenItem.title_img)
 
         //Para el onClick
         //Obejeto

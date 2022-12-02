@@ -36,17 +36,21 @@
             android:id="@+id/cardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:cardCornerRadius="180dp"
+            app:cardCornerRadius="50dp"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline4">
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            app:cardBackgroundColor="#000">
 
             <ImageView
                 android:id="@+id/IconImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_culture_1" />
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/bg_culture_1"
+                android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.Guideline
