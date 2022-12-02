@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.adventurekaan",
+  "applicationId": "com.app.adventurekaan",
   "variantName": "release",
   "elements": [
     {

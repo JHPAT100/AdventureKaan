@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.adventurekaan'
+    namespace 'com.app.adventurekaan'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.adventurekaan"
+        applicationId "com.app.adventurekaan"
         minSdk 23
         targetSdk 32
         versionCode 1

@@ -32,7 +32,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.app.adventurekaan.MainActivity"
             android:exported="true"
             android:theme="@style/SplashTheme"
             android:screenOrientation="portrait" >
